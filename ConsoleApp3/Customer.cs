@@ -9,7 +9,7 @@ namespace ConsoleApp3
     class Customer
     {
 
-        public string Email
+        public Email Email
         {
             get;private set;     
         }
