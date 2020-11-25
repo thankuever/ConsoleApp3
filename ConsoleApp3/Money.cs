@@ -6,32 +6,29 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp3
 {
-   public class Money
+    public struct Money
     {
-        public Money(int Value)
+
+        public int Value { get; private set; }
+        private Money(int money)
         {
-            _value = Value;
+            this.Value = money;
+        }
+        public static implicit operator Money (int money)
+        {
+            if (money < 0)
+            {
+                throw new ArgumentOutOfRangeException(nameof(Money));
+            }
+            else
+            {
+                return new Money(money);
+            }
         }
 
-        private int _value;
-        public int Value
+        public static implicit operator int (Money money)
         {
-            set
-            {             
-                //金額需大於等於0
-                if (value >= 0)
-                {
-                    _value = value;
-                }
-                else
-                {
-                    _value = 0;
-                }
-            }
-            get
-            {
-                return _value;
-            }
+            return money.Value;
         }
 
     }

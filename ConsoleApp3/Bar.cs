@@ -12,34 +12,22 @@ namespace ConsoleApp3
         public List<Order> Orders = new List<Order> { };
 
         //銷售額
-        private Money _revenue = new Money(0);
-
-        public Money Revenue
-        {
-            get
-            {
-                return _revenue;
-            }
-
-            private set { 
-            }
-        }
+        private Money _revenue = 0;
     
     public int printRecord()
     {
         foreach (Order o in Orders)
-        {
-             
+        {         
             foreach (OrderItem item in o.Items)
             {
-                item.Liquor._SaleQty += item._Qty;
+                item.Liquor.SaleQty += item.Qty;
                 int price = Convert.ToInt32(item.Liquor.Price.Value);
-                int qty = item._Qty;
+                int qty = item.Qty;
                 Console.WriteLine("向"+o.CustmerName +"銷售" + item.Liquor.Name + qty + "瓶".YH_JumpLine());
-                Revenue.Value += price * qty;
+                _revenue += price * qty;
             }
         }
-            return Revenue.Value;
+            return _revenue.Value;
     }
 }
 }

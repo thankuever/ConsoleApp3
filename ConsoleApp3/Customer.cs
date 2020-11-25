@@ -8,32 +8,18 @@ namespace ConsoleApp3
 {
     class Customer
     {
-        private string email;
 
-        public string _Email
+        public string Email
         {
-            set
-            {
-                if(value.IsValidEmail())
-                {
-                    email = value;
-                }
-                else
-                {
-                    email = "wrong format";
-                }
-            }
-            get
-            {
-                return _Email;
-            }
+            get;private set;     
         }
 
         public String Name { get; set; }
 
-        public Customer(String name)
+        public Customer(String name,Email email)
         {
             this.Name = name;
+            this.Email = email;
         }
 
         public void Create(Bar bar ,Order o)

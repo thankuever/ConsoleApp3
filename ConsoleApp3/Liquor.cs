@@ -14,21 +14,10 @@ namespace ConsoleApp3
 
         //Property: 價格
         public Money Price { get; set; }
-        private int saleQty = 0;
 
-        public int _SaleQty
+        public int SaleQty
         {
-            get { return saleQty; }
-            set { 
-                if(value>0)
-                {
-                    saleQty = value;
-                }
-                else
-                {
-                    saleQty = 0;
-                }
-                        }
+            get;set;
         }
 
         //建構子
